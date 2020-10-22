@@ -1,14 +1,21 @@
-const express = require("express");
+import express from "express";
+import logger from "morgan";
 const app = express();
 const port = 4000;
 
-function handlelistening() {
+const handlelistening = () =>
   console.log(`listening on: http://localhost:${port}`);
-}
 
 const handlehome = (req, res) => res.send("Hi from home");
 
 const handleprofile = (req, res) => res.send("This is my profile");
+
+const handlebetween = (req, res, next) => {
+  console.log("Btween");
+  next();
+};
+
+app.use(handlebetween);
 
 app.get("/", handlehome);
 
