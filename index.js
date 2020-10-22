@@ -6,6 +6,14 @@ function handlelistening() {
   console.log(`listening on: http://localhost:${port}`);
 }
 
+const handlehome = (req, res) => res.send("Hi from home");
+
+const handleprofile = (req, res) => res.send("This is my profile");
+
+app.get("/", handlehome);
+
+app.get("/profile", handleprofile);
+
 app.listen(port, handlelistening);
 
 /*
