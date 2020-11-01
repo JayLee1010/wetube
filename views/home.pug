@@ -1,4 +1,6 @@
 extends layouts/main.pug
 
 block content
-    p Hello
+    .videos
+        each item in videosdb
+            h1=item.title
